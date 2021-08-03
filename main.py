@@ -19,7 +19,10 @@ async def ping(ctx):
 async def on_ready():
     print("Bot is ready")
 
-
+@client.command()                                       
+async def help(ctx):
+    await ctx.send("use command .movies and type film you want to know information")
+    
 @client.command()                                       
 async def movies(ctx, *, arg):
     t=arg
