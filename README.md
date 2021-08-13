@@ -1,2 +1,2 @@
 # Movies-Discord-Bot
-Discord to search movies
+Discord bot to search movies
