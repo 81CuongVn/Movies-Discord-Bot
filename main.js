@@ -8,6 +8,8 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -19,7 +21,6 @@ client.on('interactionCreate', async interaction => {
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
 client.commands = new Collection();
