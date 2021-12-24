@@ -2,12 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const { result } = require('lodash');
 const fetch = require('node-fetch');
-var search = require('youtube-search');
 
-var opts = {
-  maxResults: 1,
-  key: 'AIzaSyDbT0Qk07AIW5GeEDS4HaDvgBmeuLHial4'
-};
 
 
 module.exports = {
@@ -15,23 +10,17 @@ module.exports = {
 		.setName('movies')
 		.setDescription('Get info about a movie!')
         .addStringOption(option =>
-            option.setName('movies')
+            option.setName('movie')
                 .setDescription('Name of movie')
                 .setRequired(true)),
 	async execute(interaction) {
-        let option = interaction.options.get("movies");
-		let response = await fetch("http://www.omdbapi.com/?t=" + option.value + "&apikey=");
+        let option = interaction.options.get("movie");
+		let response = await fetch("http://www.omdbapi.com/?t=" + option.value + "&apikey=7e8bdc5e");
         const data = await response.json();
-
-        search('jsconf', opts, function(err, results) {
-            if(err) return console.log(err);
-          
-            global.film=results
-          });
         let exampleEmbed = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle(data['Title'])
-        .setURL('https://discord.js.org/')
+        .setURL('https://www.google.com/search?q=' + option.value)
         .setAuthor('Movies Bot', 'https://images.discordapp.net/avatars/872130446849364048/573dfa5618b61decad9a964e9651c771.png?size=128', 'https://top.gg/bot/872130446849364048')
         .setDescription(data['Plot'])
         .setThumbnail('https://discordapp.com/assets/e4923594e694a21542a489471ecffa50.svg')
