@@ -5,7 +5,7 @@
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "lodash": "^4.17.21",
-    "node-fetch": "^2.6.6",
+    "node-fetch": "^2.6.7",
     "youtube-search": "^1.1.6"
   }
 }
